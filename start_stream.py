@@ -1,4 +1,5 @@
 import os
+import time
 from credentials import *
 os.environ["JAVA_HOME"] = JAVA_HOME_USER
 os.environ["SPARK_HOME"] = SPARK_HOME_USER
@@ -11,8 +12,7 @@ from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext
 from pyspark.sql.functions import desc
 from collections import namedtuple
-
-# def launch_stream():
+import pandas as pd
 
 if __name__ == '__main__':
  sc = SparkContext()
@@ -33,7 +33,9 @@ if __name__ == '__main__':
   .reduceByKey(lambda a, b: a + b)  # Reduces
   .map(lambda rec: Tweet(rec[0], rec[1]))  # Stores in a Tweet Object
   .foreachRDD(lambda rdd: rdd.toDF().sort(desc("count"))  # Sorts Them in a DF
-              .limit(10).registerTempTable("tweets")))  # Registers to a table.
+  .limit(10).registerTempTable("tweets")))  # Registers to a table.
 
  print("START STREAMING...")
  ssc.start()
+
+

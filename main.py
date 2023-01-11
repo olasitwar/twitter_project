@@ -1,13 +1,11 @@
 from credentials import *
-from python.TweetRead import *
+from twitter_project.scripts.TweetRead import *
 # import tweepy
 # from tweepy import OAuthHandler
 
 if __name__ == '__main__':
 
-    wordList = ['hate', 'moron', 'bullshit']
-    # launch_stream()
-    # get_steamed_data(API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+    wordList = ['bullshit', 'fuck' 'hate']
     auth = OAuthHandler(API_KEY, API_KEY_SECRET)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
@@ -24,3 +22,4 @@ if __name__ == '__main__':
     print( "Received request from: " + str( addr ) )
 
     sendData(wordList, c , auth)
+
