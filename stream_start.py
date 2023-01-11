@@ -1,18 +1,16 @@
 import os
-import time
 from credentials import *
 os.environ["JAVA_HOME"] = JAVA_HOME_USER
 os.environ["SPARK_HOME"] = SPARK_HOME_USER
 os.environ["PATH"] = PATH_USER
 
 import findspark
-findspark.init('/home/lkw/spark-3.0.2-bin-hadoop3.2')
+findspark.init(FINDSPARK_PATH)
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext
 from pyspark.sql import SQLContext
 from pyspark.sql.functions import desc
 from collections import namedtuple
-import pandas as pd
 
 if __name__ == '__main__':
  sc = SparkContext()

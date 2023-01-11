@@ -1,7 +1,5 @@
 from credentials import *
 from twitter_project.scripts.TweetRead import *
-# import tweepy
-# from tweepy import OAuthHandler
 
 if __name__ == '__main__':
 
