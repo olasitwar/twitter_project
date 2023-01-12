@@ -1,5 +1,3 @@
-import tweepy
-from tweepy import OAuthHandler
 from tweepy import Stream
 from tweepy.streaming import StreamListener
 from twitter_project.scripts.TweetTransform import *
@@ -8,10 +6,6 @@ import pandas as pd
 
 import socket
 import json
-
-# def get_steamed_data(consumer_key, consumer_secret, access_token, access_secret):
-
-
 
 class TweetsListener(StreamListener):
 
